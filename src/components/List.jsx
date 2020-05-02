@@ -28,7 +28,7 @@ const List = ({items, isRemovable, onClickAdd, onClickItem, onRemove, activeItem
                 items?(items.map((i, index) => ( 
                 <li 
                 key={index} 
-                className={classNames(i.className, {'active': (activeItem&&activeItem.id===i.id)} )}
+                className={classNames(i.className, {'active': activeItem&&(activeItem.id===i.id)} )}
                 onClick={()=>onClickItem?onClickItem(i):"none"} 
                 >
                 {i.icon ?  <div className='i'>{i.icon}</div> : <div className={classNames('circle', i.color.name, 'i')}>{

@@ -19,13 +19,16 @@ function App() {
   const [lists, setLists] = useState(null)
   const [colors, setColors] = useState(null)
   const [activeItem, setActiveItem] = useState({ 
-    allTasks: true
+    allTasks: true, id: 0
    })
+  console.log(colors)
   useEffect(() => {
-    fetch('https://tojustdoit-api.herokuapp.com/colors').then(res => res.json()).then(data => {
+    fetch('https://tojustdoit-api.herokuapp.com/colors').then(res => res.json()).catch(function(error){
+      alert(`Database failed :(((\nTry to reload the page`)}).then(data => {
       setColors(data)
     });
-    fetch('https://tojustdoit-api.herokuapp.com/lists').then(res => res.json()).then(data => {
+    fetch('https://tojustdoit-api.herokuapp.com/lists').then(res => res.json()).catch(function(error){
+      alert(`Database failed :((`)}).then(data => {
       setLists(data)
     });
   }, []);
@@ -82,7 +85,8 @@ function App() {
             icon: <img src={listSvg} alt="list icon"/>,
             name:'All tasks',
             allTasks: true,
-            active:true
+            active:true,
+            id: 0
            }
         ]}
         activeItem={activeItem}
@@ -128,8 +132,7 @@ function App() {
             })
           );
         }
-
-        }
+      }
         />:""}
       </section>
     </div>

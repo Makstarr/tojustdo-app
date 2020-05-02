@@ -25,7 +25,7 @@ export default function AddTask({onAddTask, list}) {
         //Perform action based on response
             })
             .catch(function(error){
-                console.log(error);
+                alert(`Database failed:${error}`);
         //Perform action based on error
             })
         .then(() => {

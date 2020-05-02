@@ -33,17 +33,17 @@ const AddList  = ({onAdd, colors}) =>{
         axios.post('https://tojustdoit-api.herokuapp.com/lists-add', data)
         .then(function(response){
             console.log(response);
-        //Perform action based on response
-            })
-            .catch(function(error){
-                console.log(error);
-        //Perform action based on error
-            })
-        .finally(()=>{
             onAdd(data);
             showPopUp(!popUp);
             setInputValue("");
             selectColor(colors[0]["id"])
+        //Perform action based on response
+            })
+            .catch(function(error){
+                alert(`Database failed:${error}`);
+        //Perform action based on error
+            })
+        .finally(()=>{
             setLoad(false);
         })
     };
@@ -73,7 +73,7 @@ const AddList  = ({onAdd, colors}) =>{
                 placeholder="Task name" 
                 value={inputValue}
                 onChange={(event)=>setInputValue(event.target.value)}/>
-
+                {colors?(
                 <ul className="add-list__colors">
                     {
                     colors.map((i) => (<li 
@@ -82,7 +82,9 @@ const AddList  = ({onAdd, colors}) =>{
                         className= {classNames("add-list__circle", i.name, {'active':(i.id===selectedColor)})}>
                         </li>)) 
                     }
-                </ul>
+                </ul>) :
+                <div style={{padding: 10 + 'px'}}>Loading...</div>
+                }
                 <button onClick={addList} className="add-list__button button">{load ? 'Working...' : 'Add list'}</button>
             </div>}
     </div> 
