@@ -1,0 +1,164 @@
+{
+  "lists": [
+    {
+      "id": 0.47228773517099465,
+      "name": "To just do it app",
+      "colorId": 7,
+      "color": {
+        "id": 7,
+        "hex": "#f1c914",
+        "name": "yellow"
+      }
+    },
+    {
+      "id": 0.4606261829151066,
+      "name": "Bochvar",
+      "colorId": 4,
+      "color": {
+        "id": 4,
+        "hex": "rgb(211, 95, 192)",
+        "name": "pink"
+      }
+    },
+    {
+      "id": 0.6913019311323838,
+      "name": "MISIS",
+      "colorId": 3,
+      "color": {
+        "id": 3,
+        "hex": "rgb(21, 208, 221)",
+        "name": "sea"
+      }
+    },
+    {
+      "id": 0.10766524111350595,
+      "name": "Job",
+      "colorId": 8,
+      "color": {
+        "id": 8,
+        "hex": "rgb(163, 46, 46)",
+        "name": "red"
+      }
+    },
+    {
+      "id": 0.5413799443657521,
+      "name": "Self development",
+      "colorId": 5,
+      "color": {
+        "id": 5,
+        "hex": "rgb(96, 219, 168)",
+        "name": "turquoise"
+      }
+    }
+  ],
+  "tasks": [
+    {
+      "id": 0.17909667572164967,
+      "listId": 0.47228773517099465,
+      "text": "Flask backend",
+      "completed": false
+    },
+    {
+      "id": 0.5502591973651214,
+      "listId": 0.47228773517099465,
+      "text": "React Router ",
+      "completed": false
+    },
+    {
+      "id": 0.7189143668741307,
+      "listId": 0.47228773517099465,
+      "text": "Heroku push",
+      "completed": false
+    },
+    {
+      "id": 0.9993920351987049,
+      "listId": 0.47228773517099465,
+      "text": "SQL database",
+      "completed": false
+    },
+    {
+      "id": 0.27747214966285494,
+      "listId": 0.47228773517099465,
+      "text": "Add ability to change tasks",
+      "completed": true
+    },
+    {
+      "id": 0.24397641729799546,
+      "listId": 0.47228773517099465,
+      "text": "Big field for tasks text with scroll",
+      "completed": true
+    },
+    {
+      "id": 0.7481333943883328,
+      "listId": 0.47228773517099465,
+      "text": "Saving tasks button",
+      "completed": true
+    },
+    {
+      "id": 0.32632575299569977,
+      "listId": 0.47228773517099465,
+      "text": "Delete tasks ",
+      "completed": true
+    },
+    {
+      "id": 0.07062578113129625,
+      "listId": 0.47228773517099465,
+      "text": "Add new lisis",
+      "completed": true
+    },
+    {
+      "id": 0.05768267035267649,
+      "listId": 0.47228773517099465,
+      "text": "Delete lists",
+      "completed": true
+    },
+    {
+      "id": 0.7808271208341857,
+      "listId": 0.47228773517099465,
+      "text": "Adoptive design",
+      "completed": false
+    }
+  ],
+  "colors": [
+    {
+      "id": 1,
+      "hex": "rgb(46, 101, 163)",
+      "name": "blue"
+    },
+    {
+      "id": 2,
+      "hex": "rgb(40, 104, 56)",
+      "name": "green"
+    },
+    {
+      "id": 3,
+      "hex": "rgb(21, 208, 221)",
+      "name": "sea"
+    },
+    {
+      "id": 4,
+      "hex": "rgb(211, 95, 192)",
+      "name": "pink"
+    },
+    {
+      "id": 5,
+      "hex": "rgb(96, 219, 168)",
+      "name": "turquoise"
+    },
+    {
+      "id": 6,
+      "hex": "rgb(116, 46, 163)",
+      "name": "purple"
+    },
+    {
+      "id": 7,
+      "hex": "#f1c914",
+      "name": "yellow"
+    },
+    {
+      "id": 8,
+      "hex": "rgb(163, 46, 46)",
+      "name": "red"
+    }
+  ]
+}

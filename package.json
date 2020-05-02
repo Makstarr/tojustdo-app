@@ -13,6 +13,7 @@
     "axios": "^0.19.2",
     "browser-sync": "^2.26.7",
     "classnames": "^2.2.6",
+    "env-cmd": "^10.1.0",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-rename": "^2.0.0",
@@ -24,16 +25,12 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "serve": "^11.3.0"
-    
   },
-  "scripts": {
-    "start-app": " venv/bin/flask run --no-debugger",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "json": "son-server ./src/assets/db.json --watch --port 3001"
-  },
+
+    "scripts": {
+      "build:staging": "env-cmd -f .env.staging npm run build"
+    }
+  ,
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -49,5 +46,4 @@
       "last 1 safari version"
     ]
   }
-  
 }
