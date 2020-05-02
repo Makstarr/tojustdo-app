@@ -19,7 +19,7 @@ export default function AddTask({onAddTask, list}) {
             text: inputValue, 
             completed: false}
 
-        axios.post('https://tojustdoit-api.herokuapp.com/tasks-add', data)
+        axios.post('https://tojustdo-api.herokuapp.com/tasks-add', data)
         .then(function(response){
             console.log(response);
         //Perform action based on response

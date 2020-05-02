@@ -15,7 +15,7 @@ function Tasks({lists, onEditTitle, onAddTask, onCompleteTask, onDeleteTask, onU
             onEditTitle(list.id, newTitle)
             // changing db
             let data = {id:list.id, newName:newTitle};
-            axios.post('https://tojustdoit-api.herokuapp.com/title-update', data)
+            axios.post('https://tojustdo-api.herokuapp.com/title-update', data)
             .then(function(response){
                 console.log(response);
             //Perform action based on response
@@ -32,7 +32,7 @@ function Tasks({lists, onEditTitle, onAddTask, onCompleteTask, onDeleteTask, onU
         onCompleteTask(task.id, task.listId)
         // changing db
         let data = task;
-        axios.post('https://tojustdoit-api.herokuapp.com/tasks-check', data)
+        axios.post('https://tojustdo-api.herokuapp.com/tasks-check', data)
             .then(function(response){
                 console.log(response);
             //Perform action based on response

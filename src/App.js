@@ -23,11 +23,11 @@ function App() {
    })
   console.log(colors)
   useEffect(() => {
-    fetch('https://tojustdoit-api.herokuapp.com/colors').then(res => res.json()).catch(function(error){
+    fetch('https://tojustdo-api.herokuapp.com/colors').then(res => res.json()).catch(function(error){
       alert(`Database failed :(((\nTry to reload the page`)}).then(data => {
       setColors(data)
     });
-    fetch('https://tojustdoit-api.herokuapp.com/lists').then(res => res.json()).catch(function(error){
+    fetch('https://tojustdo-api.herokuapp.com/lists').then(res => res.json()).catch(function(error){
       alert(`Database failed :((`)}).then(data => {
       setLists(data)
     });

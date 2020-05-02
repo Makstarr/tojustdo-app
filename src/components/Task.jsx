@@ -12,7 +12,7 @@ export default function Task({task, checkTask, onDeleteTask, onUpdateTask, Remov
 
         let data = {id:taskId, newText:taskText};
 
-        axios.post('https://tojustdoit-api.herokuapp.com/tasks-update', data)
+        axios.post('https://tojustdo-api.herokuapp.com/tasks-update', data)
         .then(function(response){
             console.log(response);
         //Perform action based on response

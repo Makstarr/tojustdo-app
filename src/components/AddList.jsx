@@ -30,7 +30,7 @@ const AddList  = ({onAdd, colors}) =>{
             color: colors.find(color => color.id===selectedColor),
             tasks:[]
         };
-        axios.post('https://tojustdoit-api.herokuapp.com/lists-add', data)
+        axios.post('https://tojustdo-api.herokuapp.com/lists-add', data)
         .then(function(response){
             console.log(response);
             onAdd(data);

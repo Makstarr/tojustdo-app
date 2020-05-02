@@ -11,7 +11,7 @@ const List = ({items, isRemovable, onClickAdd, onClickItem, onRemove, activeItem
             onRemove(i.id)
 
 
-            axios.post('https://tojustdoit-api.herokuapp.com/lists-delete', data)
+            axios.post('https://tojustdo-api.herokuapp.com/lists-delete', data)
             .then(function(response){
                 console.log(response);
             //Perform action based on response
