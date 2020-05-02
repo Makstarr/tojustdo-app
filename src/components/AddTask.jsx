@@ -24,17 +24,13 @@ export default function AddTask({onAddTask, list}) {
             console.log(response);
         //Perform action based on response
             })
-            .catch(function(error){
-                alert(`Database failed:${error}`);
-        //Perform action based on error
+            .catch(()=>{
+                alert('Database error :((')
             })
         .then(() => {
             onAddTask(data, list.id);
             setInputValue("");
             showPopUp(false)
-        })
-        .catch(()=>{
-            alert('Database error :((')
         })
         .finally(()=>{
             setLoad(false);
