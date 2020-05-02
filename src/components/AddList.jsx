@@ -33,7 +33,7 @@ const AddList  = ({onAdd, colors}) =>{
         axios.post('https://tojustdo-api.herokuapp.com/lists-add', data)
         .then(function(response){
             console.log(response);
-            data.listId = response.data;
+            data.listId = response.data.id;
             console.log(data);
             onAdd(data);
             showPopUp(!popUp);
