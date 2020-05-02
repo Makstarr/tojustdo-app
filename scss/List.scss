@@ -1,0 +1,75 @@
+
+.todo{
+    &__list{
+        position: relative;
+        list-style: none;
+        display: block;
+        margin-bottom: 20px;
+        max-height: 390px;
+        overflow-y: scroll;
+        li{
+            margin-bottom: 5px;
+            transition: all .3s;
+            display: flex;
+            padding: 6px 6px;
+            justify-content: flex-start;
+            align-items:center;
+            cursor: pointer;
+            border-radius: 5px;
+            .list__remove-icon{
+                display: flex;
+                justify-content: center;
+                align-items:center;
+                transition: all .3s;
+                opacity: 0;
+                width: 10px;
+                height: 15px;
+                border: none!important;
+                border-radius: 3px;
+                margin-right: 15px;
+                background-color: #222222ee;
+                &:hover{
+                    opacity: .8!important;
+                }
+            }
+            &:hover{
+                background-color: #16161654;
+                .list__remove-icon{
+                    opacity: .2;
+                }
+            }
+            &.active{
+                .list__remove-icon{
+                    opacity: .5;
+                }
+                background-color: #161616;
+                box-shadow: 0px 2px 10px rgba($color: #000000, $alpha: .1); 
+            }
+            .i{
+                display: block;
+            }
+            span{
+                line-height: 20px;
+                padding-left: 12px;
+                display: inline-block;
+                flex: 1;
+                white-space: nowrap;
+                overflow: hidden !important;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+}
+
+.circle{
+    color: #222222ee;
+    font-weight: 4 00;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    display: block;
+    width: 18px!important;
+    height: 18px;
+    border-radius: 100%;
+}

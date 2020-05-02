@@ -1,0 +1,138 @@
+html{
+    box-sizing: border-box;
+}
+* {
+    color: #acacac;
+    box-sizing: inherit;
+    -webkit-font-smoothing:antialased;
+    font-family: 'Roboto', sans-serif;
+    &:focus {outline:0; border: none;}
+}
+
+.todo{
+    background-color: #161616;
+    font-size: 16px;
+    line-height: 18px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 1100px;
+    height: 800px;
+    margin: auto;
+    margin-top: 4%;
+    border-radius: 20px;
+    box-shadow: 3px 3px 15px #868686d7;
+    &__sidebar{
+        border-radius: 20px 0 0 20px;
+        padding: 50px 20px;
+        width: 246px!important;
+        height: 100%;
+        background-color: #282928;
+    }
+    &__tasks{
+        border-radius: 0px 20px 20px 0px;
+        position: relative;
+        width: calc(100% - 246px);
+        height: 100%;
+        overflow-y: scroll;
+        padding-bottom: 40px;
+        border: 10px solid #161616;
+        border-left: 0;
+        background-color: #161616;
+    }
+}
+.footer{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+ }
+ .footer__contact{
+    font-family: 'Amatic SC', cursive;
+    font-size: 16px;
+    color: #272c2c!important;
+     text-decoration: none;
+ }
+
+.field{
+    box-shadow: 0px 0px 0px #000;
+    border: none;
+    border-radius: 3px;
+    padding: 8px 10px;
+    color: #4b4b4b;
+    background-color: #d6d6d6;
+}
+.button{
+    border: none!important;
+    border-radius: 3px;
+    padding: 8px 10px;
+    color: #222222ee;
+    background-color: darken(rgb(26, 146, 100), 6%);
+    cursor: pointer;
+    transition: all .5s;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.11)!important;
+    &:hover{
+        background-color: darken(rgb(26, 146, 100), 0%);
+        color:#fff
+    }
+    &:active{
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0)!important;
+        transform: translate(2px, 2px);
+    }
+    &.cancel-btn{
+        background-color: darken(rgb(88, 88, 88), 6%);
+        &:hover{
+            background-color: darken(rgb(88, 88, 88), 0%);
+            color:#fff
+        }
+    }
+}
+.turquoise{
+    background-color: rgb(96, 219, 168);
+    color: rgb(96, 219, 168);
+}
+.red{
+    background-color: rgb(163, 46, 46);
+    color: rgb(163, 46, 46);
+}
+.blue{
+    background-color: rgb(46, 101, 163);
+    color: rgb(46, 101, 163);
+}
+.pink{
+    background-color: rgb(211, 95, 192);
+    color: rgb(211, 95, 192);
+}
+.grey{
+    background-color: rgb(58, 53, 53);
+    color: rgb(58, 53, 53);
+}
+.green{
+    background-color: rgb(40, 104, 56);
+    color: rgb(40, 104, 56);
+}
+.purple{
+    background-color: rgb(116, 46, 163);
+    color:rgb(116, 46, 163);
+}
+.black{
+    background-color: rgb(12, 3, 3);
+    color: rgb(12, 3, 3);
+}
+.yellow{
+    background-color: #f1c914;
+    color: #f1c914;
+}
+.sea{
+    background-color: rgb(21, 208, 221);
+    color: rgb(21, 208, 221);
+}
+
+.shai{
+    position: absolute;
+    z-index: 99;
+    left: 50px;
+    bottom: 0;
+    height: 235px;
+}

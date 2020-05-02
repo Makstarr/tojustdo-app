@@ -1,0 +1,75 @@
+.add-list{
+    &__circle{
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+        cursor: pointer;
+        &:hover, &.active{
+            border: 2px solid #1a1a1a7c;
+        }
+    }
+    &__colors{
+        list-style: none;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        padding: 16px 0;  
+        width: 85%;
+        justify-content: space-between;  
+    }
+    &__button{
+        svg{
+            path{
+                stroke: #555555;
+            }
+        }
+        span{
+            color: #555555;
+        }
+        &:hover{
+            svg{
+                path{
+                    stroke: #eee;
+                }
+            }
+            span{
+                color: #eee;
+            }
+        }
+    }
+    &__popup{
+        width: 235px;
+        height: 150px;
+        color: #030303;
+        background-color: rgb(65, 65, 65);
+        position: relative;
+        margin-left: 16px;
+        margin-top: -18px;
+        z-index: 999;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 5px;
+        box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.212)!important;
+        .button{
+            width: 85%;
+        } 
+    }
+    &__close{
+        position: absolute;
+        right: -10px;
+        top: -8px;
+        width: 30px;
+        height: 30px;
+        border: none;
+        background-color: #55555500;
+        cursor: pointer;
+
+        
+    }
+    .field{
+        width: 85%;
+        margin: 20px auto 4px;
+    }
+}
