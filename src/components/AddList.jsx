@@ -59,7 +59,9 @@ const AddList  = ({onAdd, colors}) =>{
             </svg>,
             name:'Add list'
             }
-        ]}isRemovable={false}/>
+        ]}
+        setActive={(i)=>{}}
+        isRemovable={false}/>
         {popUp && <div className="add-list__popup">
                 <button onClick={()=>showPopUp(false)} className="add-list__close">
                     <i>

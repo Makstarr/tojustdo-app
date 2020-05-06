@@ -1,4 +1,6 @@
-import React, {useState, useEffect} from 'react'; 
+import React, {useState, useEffect} from 'react';
+import { useHistory } from "react-router-dom";
+
 
 import AddList from './components/AddList'
 import List from './components/List'
@@ -14,14 +16,13 @@ import './css/Tasks.min.css';
 import './css/AddTasks.min.css';
 
 
+
 function App() {
-  
   const [lists, setLists] = useState(null)
   const [colors, setColors] = useState(null)
-  const [activeItem, setActiveItem] = useState({ 
-    allTasks: true, id: 0
-   })
-  console.log(colors)
+  const [activeItem, setActiveItem] = useState(null)
+  let history = useHistory()
+
   useEffect(() => {
     fetch('https://tojustdo-api.herokuapp.com/colors').then(res => res.json()).catch(function(error){
       alert(`Database failed :(((\nTry to reload the page`)}).then(data => {
@@ -30,9 +31,31 @@ function App() {
     fetch('https://tojustdo-api.herokuapp.com/lists').then(res => res.json()).catch(function(error){
       alert(`Database failed :((`)}).then(data => {
       setLists(data)
+      if (history.location.pathname.split('lists/')[1]){
+        let newActiveItem = data.find(item=>item.id == history.location.pathname.split('/')[2])
+        if(!newActiveItem){
+          history.push('/')
+          alert('No shuch list found! :((')
+          return
+        }
+        setActiveItem(newActiveItem)
+      }
     });
   }, []);
-  
+
+
+  useEffect(() => {
+    if (lists&&history.location.pathname.split('/')[2]){
+        console.log(activeItem)
+        let newActiveItem = lists.find(item=>item.id == history.location.pathname.split('/')[2])
+        console.log(newActiveItem)
+        setActiveItem(newActiveItem)
+    }
+    else {
+      setActiveItem({allTasks: true, id: 0})
+    }
+},[history.location.pathname]);
+
   const onAddList = (obj) =>{
     setLists([...lists, obj])
   }
@@ -77,66 +100,65 @@ function App() {
   }
 
   return (
-    <div className="app">
-    <div className="todo">
-      <section className="todo__sidebar">
-        <List items= {[
-          { 
-            icon: <img src={listSvg} alt="list icon"/>,
-            name:'All tasks',
-            allTasks: true,
-            active:true,
-            id: 0
-           }
-        ]}
-        activeItem={activeItem}
-        onClickItem={(i) => {
-          i.active=true
-          setActiveItem(i)}}
-        isRemovable={false}/>
-        {lists?(
-        <List items= {lists} 
-        onRemove = {(id)=>
-          setLists(lists.filter(item => item.id !== id))}
-        onClickItem={(i) => {
-          i.active=true
-          setActiveItem(i)}}
-        activeItem={activeItem}
-        isRemovable/>
-        ) : <div style={{padding: 10 + 'px'}}>Loading...</div>}
-         <AddList onAdd={onAddList} colors={colors}/>
-         <img className ="shai"src={doIt} alt="list icon"/>
-      </section>
-      <section className="todo__tasks">
-        {lists?<Tasks 
-        onEditTitle={onEditTitle} 
-        lists={!activeItem.allTasks?[activeItem]:lists}
-        onAddTask={onAddTask}
-        onCompleteTask={onCompleteTask}
-        onDeleteTask={(taskId, listId) =>{
+      <div className="todo">
+        <section  className="todo__sidebar">
+          <List items= {[
+            { 
+              icon: <img src={listSvg} alt="list icon"/>,
+              name:'All tasks',
+              allTasks: true,
+              active:false,
+              id: 0
+            }
+          ]}
+          activeItem={activeItem}
+          onClickItem={(i) => {
+            history.push(`/`);
+            i.active=true}}
+          isRemovable={false}/>
+          {lists?(
+          <List items= {lists} 
+          onRemove = {(id)=>
+            setLists(lists.filter(item => item.id !== id))}
+          onClickItem={(i) => {
+            history.push(`/lists/${i.id}`);
+            i.active=true
+            }}
+          activeItem={activeItem}
+          isRemovable/>
+          ) : <div style={{padding: 10 + 'px'}}>Loading...</div>}
+          <AddList onAdd={onAddList} colors={colors}/>
+          <img className ="shai"src={doIt} alt="list icon"/>
+        </section>
+        <section className="todo__tasks">
+          {lists?<Tasks 
+          onEditTitle={onEditTitle} 
+          lists={!activeItem.allTasks?[activeItem]:lists}
+          onAddTask={onAddTask}
+          onCompleteTask={onCompleteTask}
+          onDeleteTask={(taskId, listId) =>{
+              setLists(lists.map(list=>{
+                if(list.id === listId){
+                  list.tasks = list.tasks.filter(item => item.id !== taskId)
+                }
+                  return list;
+                })
+              );
+            }
+          }
+          onUpdateTask={(taskId, listId, newText)=>{
             setLists(lists.map(list=>{
               if(list.id === listId){
-                list.tasks = list.tasks.filter(item => item.id !== taskId)
+                list.tasks.find(item => item.id === taskId).text = newText
               }
                 return list;
               })
             );
           }
         }
-        onUpdateTask={(taskId, listId, newText)=>{
-          setLists(lists.map(list=>{
-            if(list.id === listId){
-              list.tasks.find(item => item.id === taskId).text = newText
-            }
-              return list;
-            })
-          );
-        }
-      }
-        />:""}
-      </section>
-    </div>
-    </div>
+          />:""}
+        </section>
+      </div>
   );
 }
 

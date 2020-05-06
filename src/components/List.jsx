@@ -4,13 +4,12 @@ import axios from 'axios'
 
 import removeBtn from '../assets/img/remove.svg'
 
-const List = ({items, isRemovable, onClickAdd, onClickItem, onRemove, activeItem}) =>{
+const List = ({items, isRemovable, onClickAdd, onClickItem, onRemove, activeItem, setActive}) =>{
+
     const removeList = (i) => {
         if (window.confirm('Are you sure you wanna delete this whole list?')){
             let data = {id:i.id}
             onRemove(i.id)
-
-
             axios.post('https://tojustdo-api.herokuapp.com/lists-delete', data)
             .then(function(response){
                 console.log(response);
